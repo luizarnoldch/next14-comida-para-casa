@@ -1,0 +1,83 @@
+import { OgCacheEntry } from "@/store/newAnalysisFormStore";
+
+export type NetworkScrap = {
+  title: string;
+  description: string;
+  thumbnail: string;
+  keyword: string
+  social_network: string;
+  url: string;
+  ogData?: OgCacheEntry;
+};
+
+export type AnalyzedCommentsMetadata = {
+  "conclusion(descripcion)": string;
+  "conclusion(descripcion_corta)": string;
+  excitement: number;
+  empathy: number;
+  "experperiencia_cliente(descripcion)": string;
+  "experiencia_cliente(descripcion_corta)": string;
+  surprise: number;
+  "identificacion_con_valores(descripcion)": string;
+  "identificacion_con_valores(descripcion_corta)": string;
+  "intencion_de_compra(descripcion)": string;
+  "intencion_de_compra(descripcion_corta)": string;
+  "tema_conversacion(descripcion)": string;
+  "tema_conversacion(descripcion_corta)": string;
+  "Comentario Refinado": string;
+  "Comentario Ingles": string;
+  optimism: number;
+  "comparaciones_con_competidores(descripcion)": string;
+  "comparaciones_con_competidores(descripcion_corta)": string;
+  "tipo_de_comentario(descripcion)": string;
+  "tipo_de_comentario(descripcion_corta)": string;
+  approval: number;
+  annoyance: number;
+  neutral: number;
+  "elemento_persuasivo(descripcion)": string;
+  "elemento_persuasivo(descripcion_corta)": string;
+  "percepcion_de_confianza(descripcion)": string;
+  "percepcion_de_confianza(descripcion_corta)": string;
+  "categorias_de_interes(descripcion)": string;
+  "categorias_de_interes(descripcion_corta)": string;
+  disapproval: number;
+  concern: number;
+  admiration: number;
+  NPS: string;
+};
+
+export type ComentarioMetadata = {
+  "Comentario Refinado": string;
+  "Comentario Ingles": string;
+  NPS: string;
+  excitement: number;
+  approval: number;
+  neutral: number;
+  annoyance: number;
+  admiration: number;
+  concern: number;
+  disapproval: number;
+  empathy: number;
+  optimism: number;
+  surprise: number;
+  "tipo_de_comentario(descripcion)": string;
+  "tipo_de_comentario(descripcion_corta)": string;
+  "experiencia_cliente(descripcion)": string;
+  "experiencia_cliente(descripcion_corta)": string;
+  "percepcion_de_confianza(descripcion)": string;
+  "percepcion_de_confianza(descripcion_corta)": string;
+  "identificacion_con_valores(descripcion)": string;
+  "identificacion_con_valores(descripcion_corta)": string;
+  "categorias_de_interes(descripcion)": string;
+  "categorias_de_interes(descripcion_corta)": string;
+  "intencion_de_compra(descripcion)": string;
+  "intencion_de_compra(descripcion_corta)": string;
+  "comparaciones_con_competidores(descripcion)": string;
+  "comparaciones_con_competidores(descripcion_corta)": string;
+  "elemento_persuasivo(descripcion)": string;
+  "elemento_persuasivo(descripcion_corta)": string;
+  "tema_conversacion(descripcion)": string;
+  "tema_conversacion(descripcion_corta)": string;
+  "conclusion(descripcion)": string;
+  "conclusion(descripcion_corta)": string;
+};
