@@ -12,6 +12,9 @@ const HomePage = async (props: Props) => {
       <div>
         {JSON.stringify(data)}
       </div>
+      <div>
+        example
+      </div>
     </div>
   )
 }
