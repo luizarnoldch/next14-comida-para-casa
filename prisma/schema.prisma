@@ -1,0 +1,86 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+  output          = "../src/generated/prisma"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model analyzed_comments {
+  id_comment         BigInt             @id
+  metadata           Json?              @db.Json
+  created_at         DateTime           @default(now())
+  updated_at         DateTime
+  extracted_comments extracted_comments @relation(fields: [id_comment], references: [id_comment], onDelete: NoAction, onUpdate: NoAction, map: "id_comment")
+}
+
+model extracted_comments {
+  id_comment            BigInt             @id @default(autoincrement())
+  user_comment          String?            @db.VarChar(255)
+  comment               String?
+  date                  DateTime?          @db.Timestamptz(6)
+  metadata              Json?              @db.Json
+  search_post_source_id String
+  analyzed_comments     analyzed_comments?
+  search_post_source    search_post_source @relation(fields: [search_post_source_id], references: [id], onDelete: Cascade)
+}
+
+model extraction_jobs {
+  id                    String             @id
+  search_post_source_id String
+  status                String             @default("pending") @db.VarChar(50)
+  export_guid           String?
+  error_message         String?
+  retry_count           Int                @default(0)
+  created_at            DateTime           @default(now())
+  updated_at            DateTime
+  completed_at          DateTime?
+  extraction_metadata   Json?
+  search_post_source    search_post_source @relation(fields: [search_post_source_id], references: [id], onDelete: Cascade)
+
+  @@index([search_post_source_id])
+  @@index([status])
+}
+
+model search_detail {
+  id_detail          String               @id @db.VarChar(255)
+  id_job             String               @db.VarChar(255)
+  kw_main            String               @db.VarChar(255)
+  meta_data          Json?                @db.Json
+  created_at         DateTime             @default(now())
+  kw_type            String?              @db.VarChar(255)
+  search_type        String?              @db.VarChar(255)
+  updated_at         DateTime
+  kw_secondary       String[]
+  search_master      search_master        @relation(fields: [id_job], references: [id_job], onDelete: NoAction, onUpdate: NoAction, map: "id_job")
+  search_post_source search_post_source[]
+}
+
+model search_master {
+  id_job        String          @id @db.VarChar(255)
+  category      String?         @db.VarChar(100)
+  name_job      String?         @db.VarChar(100)
+  created_at    DateTime        @default(now())
+  updated_at    DateTime
+  job_status    String?         @default("created") @db.VarChar(50)
+  search_detail search_detail[]
+}
+
+model search_post_source {
+  id                 String               @id
+  url                String
+  post_metadata      Json?
+  search_detail_id   String               @db.VarChar(255)
+  created_at         DateTime             @default(now())
+  updated_at         DateTime
+  description        String?
+  extracted_comments extracted_comments[]
+  extraction_jobs    extraction_jobs[]
+  search_detail      search_detail        @relation(fields: [search_detail_id], references: [id_detail], onDelete: Cascade)
+
+  @@index([search_detail_id])
+}
