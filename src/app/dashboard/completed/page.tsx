@@ -1,4 +1,4 @@
-import { AnalisisSummary, getAllCompany } from "@/actions/analytics/get_analytics";
+import { AnalisisSummary, getAllCompany } from "../../../actions/analytics/get_analytics";
 import CompanyListClient from "./_components/CompanyListClientProps";
 import { Suspense } from "react";
 

@@ -2,7 +2,7 @@
 
 import { Suspense, use } from "react";
 import CompanyCard from "./CompanyCard";
-import { AnalisisSummary } from "@/actions/analytics/get_analytics";
+import { AnalisisSummary } from "../../../../actions/analytics/get_analytics";
 
 interface CompanyListClientProps {
   companies: Promise<AnalisisSummary[]>;

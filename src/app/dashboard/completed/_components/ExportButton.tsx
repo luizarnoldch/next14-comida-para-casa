@@ -4,7 +4,7 @@ import { useActionState } from "react";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import React from "react";
-import { exportQueryData } from "@/actions/export/create_csv";
+import { exportQueryData } from "../../../../actions/export/create_csv";
 
 interface ExportButtonProps {
   id_job: string;

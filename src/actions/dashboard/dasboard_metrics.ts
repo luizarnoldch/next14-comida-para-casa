@@ -18,6 +18,8 @@ export async function getDashboardMetrics(): Promise<DashboardMetrics> {
     },
   });
 
+  console.log(analysis)
+
   let pending = 0;
   let inProgress = 0;
   let completed = 0;

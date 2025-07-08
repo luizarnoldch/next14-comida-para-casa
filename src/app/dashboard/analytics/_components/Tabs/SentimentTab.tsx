@@ -1,6 +1,6 @@
 import { TabsContent } from "@/components/ui/tabs"
 
-import { getCommentsByCompanyAndDate } from "@/actions/analytics/get_analytics"
+import { getCommentsByCompanyAndDate } from "../../../../../actions/analytics/get_analytics"
 
 
 import { Suspense } from "react"
