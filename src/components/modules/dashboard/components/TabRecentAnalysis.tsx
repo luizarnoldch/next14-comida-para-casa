@@ -1,16 +1,15 @@
-"use client"
-
-import { RecentAnalysis } from "@/actions/dashboard/recent_analysis";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
+import { getRecentAnalyses, RecentAnalysis } from "@/actions/search_master/dashboard/dashboard_recent_analysis";
 
 type Props = {
-  recentAnalyses: RecentAnalysis[]
 }
 
-const TabRecentAnalysis = ({ recentAnalyses }: Props) => {
+const TabRecentAnalysis = async ({ }: Props) => {
+  const recentAnalyses: RecentAnalysis[] = await getRecentAnalyses();
+
   return (
     <Tabs defaultValue="recent">
       <TabsList>

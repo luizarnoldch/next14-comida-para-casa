@@ -11,15 +11,18 @@ export interface DashboardMetrics {
   growthPercentage?: number;
 }
 
+function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export async function getDashboardMetrics(): Promise<DashboardMetrics> {
+
   const analysis = await prisma.search_master.findMany({
     select: {
       job_status: true,
     },
   });
-
-  console.log(analysis)
-
+  
   let pending = 0;
   let inProgress = 0;
   let completed = 0;
