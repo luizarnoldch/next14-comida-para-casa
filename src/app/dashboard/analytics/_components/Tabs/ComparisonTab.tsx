@@ -1,7 +1,7 @@
 // pages or app dir, archivo como server component
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { TabsContent } from '@/components/ui/tabs'
-import { getCommentsByCompanyAndDate } from "@/actions/analytics/get_analytics"
+import { getCommentsByCompanyAndDate } from "../../../../../actions/analytics/get_analytics"
 import NPSRoundedDash from './company_dash/NPSRoundedDash';
 import { Suspense } from 'react';
 import NPSHorizontalBarDash from './company_dash/NPSHorizontalBarDash';

@@ -1,10 +1,12 @@
 "use client"
 
+// Temporary Content Start
 import { usePathname } from "next/navigation"
+import { useRouter } from "next/navigation"
 import Link from "next/link"
+
 import { BarChart3, Home, LayoutDashboard, LogOut, Settings, Sparkles, Clock } from "lucide-react"
 import {
-  Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
@@ -15,9 +17,21 @@ import {
 } from "@/components/ui/sidebar"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { useRouter } from "next/navigation"
+// Temporary Content End
 
-export function AppSidebar() {
+import {
+  Sidebar,
+} from "@/components/ui/sidebar"
+import SidebarDashboardHeader from "../components/SidebarDashboardHeader"
+import SidebarDashboardFooter from "../components/SidebarDashboardFooter"
+import SidebarDashboardContent from "../components/SidebarDashboardContent"
+import UserInformation from "../components/UserInformation"
+
+type SidebarDashboardProps = {
+}
+
+const SidebarDashboard = ({ }: SidebarDashboardProps) => {
+
   const pathname = usePathname()
   const router = useRouter()
 
@@ -31,9 +45,13 @@ export function AppSidebar() {
   if (pathname === "/login") {
     return null
   }
-
   return (
     <Sidebar>
+      {/* <SidebarDashboardHeader />
+      <SidebarDashboardContent />
+      <SidebarDashboardFooter /> */}
+
+      {/* Temporary Content */}
       <SidebarHeader className="flex items-center justify-between px-4 py-2">
         <div className="flex items-center gap-2 py-4">
           <Sparkles className="h-6 w-6" />
@@ -92,7 +110,7 @@ export function AppSidebar() {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarContent>
-      <SidebarFooter className="border-t p-4">
+      <SidebarFooter className="border-t p-4 flex">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Avatar className="h-8 w-8">
@@ -115,3 +133,5 @@ export function AppSidebar() {
     </Sidebar>
   )
 }
+
+export default SidebarDashboard

@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import { getCommentsByCompanyAndDate } from "@/actions/analytics/get_analytics";
+import { getCommentsByCompanyAndDate } from "../../../../../../actions/analytics/get_analytics";
 import type { ComentarioMetadata } from "@/types/network";
 import NPSHorizontalBarDash from "@/app/dashboard/analytics/_components/Tabs/company_dash/NPSHorizontalBarDash";
 import NPSRoundedDash from "@/app/dashboard/analytics/_components/Tabs/company_dash/NPSRoundedDash";

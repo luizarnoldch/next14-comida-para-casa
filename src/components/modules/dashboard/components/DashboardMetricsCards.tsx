@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { BarChart3, Clock, Sparkles, CheckCircle } from "lucide-react"
-import { DashboardMetrics, getDashboardMetrics } from '@/actions/dashboard/dasboard_metrics'
+import { DashboardMetrics, getDashboardMetrics } from "@/actions/search_master/dashboard/dashboard_metrics"
 
 const DashboardMetricsCards = async () => {
   const metrics: DashboardMetrics = await getDashboardMetrics()

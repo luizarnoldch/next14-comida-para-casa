@@ -1,7 +1,7 @@
 import type React from "react"
-import { SidebarHeader, SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { Sparkles } from "lucide-react"
-import { AppSidebar } from "@/components/app-sidebar"
+import { SidebarProvider } from "@/components/ui/sidebar"
+import SidebarDashboard from "@/components/modules/sidebar/templates/SidebarDashboard"
+import SidebarDashboardInset from "@/components/modules/sidebar/components/SidebarDashboardInset"
 
 export default function DashboardLayout({
   children,
@@ -9,16 +9,11 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
-      <SidebarProvider>
-        <AppSidebar />
-        <div className="flex min-h-screen flex-col w-full">
-          <div className="flex items-center justify-between pt-4 pl-4">
-            <SidebarTrigger />
-          </div>
-          {children}
-        </div>
-      </SidebarProvider>
-    </>
+    <SidebarProvider>
+      <SidebarDashboard />
+      <SidebarDashboardInset>
+        {children}
+      </SidebarDashboardInset>
+    </SidebarProvider>
   )
 }

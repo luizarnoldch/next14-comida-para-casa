@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
-import { AnalysisDataPayload, createAnalysisAction } from '@/actions/analytics/create_analysis';
+import { AnalysisDataPayload, createAnalysisAction } from '../../../../actions/analytics/create_analysis';
 
 const AnalysisReview = () => {
   const name_job_from_store = useNewAnalysisFormStore((state) => state.name_job);
