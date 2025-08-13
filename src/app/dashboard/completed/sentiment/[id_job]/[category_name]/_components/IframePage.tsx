@@ -28,7 +28,7 @@ export default function IframePage({ id_job, category, register }: IframePagePro
   const PAGE_ID = "AloMF";
   // const embedUrl = `https://lookerstudio.google.com/embed/reporting/${REPORT_ID}/page/${PAGE_ID}?params=${encodedParams}`;
 
-  const embedUrl = `https://lookerstudio.google.com/embed/reporting/${REPORT_ID}/page/${PAGE_ID}`;
+  const embedUrl = `https://lookerstudio.google.com/embed/reporting/729fbf16-8746-481e-85d8-f3464c955e79/page/AloMF`;
 
   return (
     <div style={{ width: '100%', height: '90vh' }}>
